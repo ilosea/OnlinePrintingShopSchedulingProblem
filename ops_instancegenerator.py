@@ -214,21 +214,13 @@ for instance_id in range(30):
         last_time = availability_size
         vec = [0, last_time]
 
-        print(vec)
-
         for j in range(numb_of_unavs):
             unav_size = 1 + math.ceil(availability_size / random.randint(2, 10))
-
             value1 = last_time + unav_size
             value2 = value1 + availability_size
             last_time = value2
-
             vec.append(value1)
-            print(vec)
             vec.append(value2)
-            print(vec)
-
-
 
         resources[i]['availability'] = vec
 
@@ -258,9 +250,6 @@ for instance_id in range(30):
 
     instance['resources'] = resources
     instance['jobs'] = jobs
-
-    print(instance)
-    print("NUMBER OF FIXED OPERATIONS: " + str(numb_of_fixed))
 
     with open('instances/' + instance_name + '.json', 'w') as outfile:
         json.dump(instance, outfile, indent=4, sort_keys=False)
